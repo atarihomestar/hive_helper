@@ -1,0 +1,16 @@
+<table class="sortable" style="width:100%" id="stats" >
+  <tr>
+    <th>List #</th>
+    <th>Perfect Count</th>
+    <th>Current Perfect Streak</th>
+    <th>Longest Perfect Streak</th>
+  </tr>
+  <% @lists.each do |list| %>
+  <tr>
+    <td><%= link_to "#{list.id}", controller: "static_pages", action: "stats", id: list.id %> </td>
+    <td><%=list.perfect_count%></td>
+    <td><%=list.current_perfect_streak%></td>
+    <td><%=list.longest_perfect_streak%></td>
+  </tr>
+  <% end %>
+</table>

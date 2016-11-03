@@ -1,0 +1,13 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Hive Helper", '/', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Settings",  edit_setting_path(1) %></li>
+        <li><%= link_to "Lists",  lists_path %></li>
+        <li><%= link_to "Stats", controller: "static_pages", action: "stats", id: session[:list_num] %> </li>
+        <li><%= link_to "Home",   '/' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

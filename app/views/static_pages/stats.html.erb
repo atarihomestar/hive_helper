@@ -1,0 +1,25 @@
+<table class="sortable" style="width:100%" id="stats" >
+  <h1>List #<%=@list.id%></h1>
+  Total guesses: <%=@total_guesses%><br><br>
+  Times you've done this list perfectly: <%=@perfect_count%><br>
+  Current perfect streak: <%=@current_perfect_streak%><br>
+  Longest perfect streak: <%=@longest_perfect_streak%><br><br>
+  Misses this try: <%=@misses_this_list%><br>
+  <tr>
+    <th>Word</th>
+    <th>Record</th>
+    <th>Streak</th>
+  </tr>
+  <% @words.each do |word| %>
+  <tr>
+    <td><%= word.text %></td>
+    <td><%= word.record %></td>
+    <td><%= word.streak %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= form_tag(reset_stats_path, method: "post") do %>
+  <p><input id="only_reset_missed" name="only_reset_missed" type="checkbox" value="1" /> Only reset words missed</p>
+  <%= submit_tag("Reset") %>
+<% end %>

@@ -1,0 +1,9 @@
+<!--<audio src=<%= audio_path "#{@word}.mp3" %> type="audio/mpeg" controls autoplay> </audio> -->
+<audio src=<%= audio_path "word.mp3" %> type="audio/mpeg" controls autoplay> </audio>
+
+<%= form_tag("/guess", method: "post") do %>
+  <%= label_tag(:q, "Type the word:") %>
+  <%= text_field_tag(:q, nil, :autocomplete => 'off', :autofocus => true, :spellcheck => 'false') %>
+  <%= hidden_field_tag(:answer, @word) %>
+  <%= submit_tag("Done") %>
+<% end %>
